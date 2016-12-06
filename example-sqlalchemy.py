@@ -206,6 +206,7 @@ result.inserted_primary_key # print out the primary key it was assigned
 from sqlalchemy.sql import select
 select_stmt = select([queries.c.sentcount])
 results = db_conn.execute(select_stmt)
+summation = 0
 for row in results:
-    summation = 0    
-    print row
+    summation = summation + row[0]
+print summation
